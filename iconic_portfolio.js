@@ -64,7 +64,7 @@ function downloadRealTemplate() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio | Powered by Chandra.Cloud</title>
+    <title>My Portfolio | Powered by Chandracloud</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -106,7 +106,7 @@ function downloadRealTemplate() {
             </div>
             <h3 style="margin-top: 40px;">Professional Resources</h3>
             <div class="attachments" id="uAttachments"></div>
-            <div class="watermark">Deployed via Chandra.Cloud</div>
+            <div class="watermark">Deployed via Chandracloud</div>
         </div>
     </div>
     <script src="user_data.js"></script>
@@ -141,14 +141,14 @@ function downloadRealTemplate() {
     // 2. USER_DATA.JS
     var jsContent = `const userData = {
     // 1. BASIC DETAILS
-    name: "Arjun Reddy",
+    name: "Arjun",
     role: "Visual Storyteller",
     location: "Hyderabad, India",
     email: "arjun@example.com",
     profile_image_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
 
     // 2. THE AI BRAIN (THEORY)
-    // This text is read by Chandra AI Agent to recommend you.
+    // This text is read by Chandracloud AI Agent to recommend you.
     ai_knowledge_base: "I am an expert in Candid Wedding Photography with 7 years of experience in South Indian traditions. My style is cinematic and natural, strictly avoiding artificial poses. I use Sony Alpha A7IV and G-Master lenses. I am available for destination weddings in Hyderabad, Bangalore, and Goa. My pricing starts from 1 Lakh per day. I also provide drone videography and premium leather albums.",
 
     // 3. SOCIAL LINKS
@@ -177,8 +177,8 @@ CMD ["nginx", "-g", "daemon off;"]`;
 CHANDRA CLOUD - ICONIC TEMPLATE
 ===============================
 1. Open 'user_data.js' and edit your details.
-2. Replace images or add PDFs to this folder.
-3. Upload this folder to Chandra AI Launchpad to Deploy.
+2. Replace your theory in AI context, images or add PDFs to this folder.
+3. Upload this folder to Chandracloud AI Launchpad to Deploy.
     `;
 
     // Pack Zip
@@ -189,6 +189,7 @@ CHANDRA CLOUD - ICONIC TEMPLATE
 
     // Download
     zip.generateAsync({type:"blob"}).then(function(content) {
-        saveAs(content, "Chandra-Iconic-Portfolio.zip");
+        saveAs(content, "Chandracloud-Iconic-Portfolio.zip");
     });
+
 }
