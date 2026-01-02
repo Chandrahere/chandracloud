@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandra Cloud • Deploy Console</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --neon: #00ff9d; 
+            --neon-dim: rgba(0, 255, 157, 0.1);
+            --bg: #0b0b0b; 
+            --panel: #141414; 
+            --border: #333;
+        }
+        
+        body { background-color: var(--bg); color: #fff; font-family: 'JetBrains Mono', monospace; margin: 0; padding: 20px; display: flex; justify-content: center; min-height: 100vh; }
+        
+        .main-wrapper { width: 100%; max-width: 700px; animation: fadeIn 0.5s ease; }
+        
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--neon); letter-spacing: 2px; }
+        
+        .panel { 
+            background: var(--panel); border: 1px solid var(--border); 
+            padding: 30px; border-radius: 8px; box-shadow: 0 0 30px var(--neon-dim);
+        }
+
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: #aaa; }
+        
+        input, select { 
+            width: 100%; padding: 15px; background: #000; 
+            border: 1px solid #444; color: #fff; font-family: inherit; font-size: 1rem;
+            box-sizing: border-box; transition: 0.3s; border-radius: 4px;
+        }
+        input:focus, select:focus { border-color: var(--neon); outline: none; }
+
+        .section-divider { 
+            border-top: 1px dashed #333; margin: 25px 0; position: relative; 
+        }
+        .section-label {
+            position: absolute; top: -10px; left: 0; background: var(--panel); 
+            padding-right: 10px; font-size: 0.8rem; color: var(--neon);
+        }
+
+        .deploy-btn { 
+            width: 100%; background: var(--neon); color: black; border: none; 
+            padding: 18px; font-size: 1.1rem; cursor: pointer; font-weight: 900; 
+            text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;
+            border-radius: 4px; transition: 0.2s;
+        }
+        .deploy-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px var(--neon-dim); }
+        .deploy-btn:disabled { background: #444; cursor: not-allowed; }
+
+        .terminal { 
+            background: #000; padding: 20px; border: 1px solid #333; 
+            margin-top: 30px; height: 200px; overflow-y: auto; 
+            font-size: 0.85rem; line-height: 1.6; border-radius: 4px;
+            border-left: 3px solid var(--neon);
+        }
+        
+        /* Dynamic Visibility */
+        .hidden { display: none; }
+
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="logo"><i class="fas fa-cloud"></i> CHANDRA CLOUD</div>
+            <p style="color:#666; font-size:0.9rem; margin-top:5px;">Universal GCP Deployment Gateway</p>
+        </div>
+
+        <div class="panel">
+            
+            <div class="input-group">
+                <label>🆔 Your Unique ID (From Payment)</label>
+                <input type="text" id="chandraId" placeholder="ex: cus_12345abcde" required>
+            </div>
+
+            <div class="input-group">
+                <label>🏷️ App Name (Unique)</label>
+                <input type="text" id="appName" placeholder="ex: my-dream-project" required>
+            </div>
+
+            <div class="section-divider"><span class="section-label">SOURCE CODE</span></div>
+
+            <div class="input-group">
+                <label>📦 Deployment Source</label>
+                <select id="sourceType" onchange="toggleSource()">
+                    <option value="git">Custom GitHub Repository</option>
+                    <option value="template">Use Marketplace Template</option>
+                </select>
+            </div>
+
+            <div class="input-group" id="gitGroup">
+                <label>🔗 GitHub URL</label>
+                <input type="text" id="repoUrl" placeholder="https://github.com/username/repo">
+            </div>
+
+            <div class="input-group hidden" id="templateGroup">
+                <label>🎨 Select Template</label>
+                <select id="templateSelect">
+                    <option value="portfolio-v1">Iconic Portfolio (Digital Identity)</option>
+                    <option value="agflow-v1">AgFlow Dashboard (SaaS)</option>
+                    <option value="hr-module-v1">HR Manager Tool</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>⚡ Compute Power</label>
+                <select id="compute">
+                    <option value="cpu">Standard CPU (Websites/APIs)</option>
+                    <option value="gpu">NVIDIA T4 GPU (AI Models) - Extra Cost</option>
+                </select>
+            </div>
+
+            <button class="deploy-btn" onclick="triggerDeploy()">
+                <i class="fas fa-rocket"></i> Launch Deployment
+            </button>
+
+        </div>
+
+        <div class="terminal" id="logs">
+            <div style="color:#888;">> Waiting for command...</div>
+        </div>
+    </div>
+
+    <script>
+        // 1. AUTO-SAVE ID (Convenience)
+        window.onload = function() {
+            const savedId = localStorage.getItem('chandra_saved_id');
+            if(savedId) document.getElementById('chandraId').value = savedId;
+        }
+
+        // 2. TOGGLE LOGIC
+        function toggleSource() {
+            const type = document.getElementById('sourceType').value;
+            if(type === 'git') {
+                document.getElementById('gitGroup').classList.remove('hidden');
+                document.getElementById('templateGroup').classList.add('hidden');
+            } else {
+                document.getElementById('gitGroup').classList.add('hidden');
+                document.getElementById('templateGroup').classList.remove('hidden');
+            }
+        }
+
+        function log(msg, color="#fff") {
+            const term = document.getElementById('logs');
+            term.innerHTML += `<div style="color:${color}; margin-bottom:5px;">> ${msg}</div>`;
+            term.scrollTop = term.scrollHeight;
+        }
+
+        // 3. MAIN DEPLOY FUNCTION
+        async function triggerDeploy() {
+            const uniqueId = document.getElementById('chandraId').value.trim();
+            const appName = document.getElementById('appName').value.trim();
+            const sourceType = document.getElementById('sourceType').value;
+            const compute = document.getElementById('compute').value;
+            
+            // Basic Validation
+            if(!uniqueId || !appName) return log("❌ Error: Missing ID or App Name", "#ff4444");
+            
+            // Save ID for next time
+            localStorage.setItem('chandra_saved_id', uniqueId);
+
+            // Construct Payload
+            let payload = {
+                user_id: uniqueId,  // THIS IS THE KEY FOR BILLING
+                app_name: appName,
+                compute_type: compute,
+                source_type: sourceType
+            };
+
+            if(sourceType === 'git') {
+                const url = document.getElementById('repoUrl').value.trim();
+                if(!url) return log("❌ Error: Repo URL required", "#ff4444");
+                payload.repo_url = url;
+            } else {
+                payload.template_id = document.getElementById('templateSelect').value;
+            }
+
+            // UI Feedback
+            log(`Authenticating ID: ${uniqueId}...`, "#00ff9d");
+            log(`Preparing Pipeline for [${appName}]...`, "#aaa");
+
+            // --- SEND TO GCP ---
+            const CLOUD_FUNCTION_URL = "https://deploy-ai-manager-845756299432.us-central1.run.app"; // Your URL
+
+            try {
+                const response = await fetch(CLOUD_FUNCTION_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+    log("✅ SUCCESS: Deployment Started!", "#00ff9d");
+    log(`Build ID: ${data.build_id}`, "#00ff9d");
+    
+    // PREDICT THE URL
+    // Format: https://{app-name}-{project-number}.us-central1.run.app
+    const projectSuffix = "845756299432.us-central1.run.app"; 
+    const finalUrl = `https://${payload.app_name}-${projectSuffix}`;
+    
+    log(`------------------------------------------------`, "#555");
+    log(`🚀 <strong>YOUR APP IS BUILDING...</strong>`, "#fff");
+    log(`It will be live in ~60 seconds at:`, "#aaa");
+    log(`<a href="${finalUrl}" target="_blank" style="color:#00ff9d; text-decoration:underline;">${finalUrl}</a>`, "#00ff9d");
+    log(`------------------------------------------------`, "#555");
+                } else {
+                    log(`❌ FAILED: ${data.error}`, "#ff4444");
+                }
+            } catch (err) {
+                log(`❌ NETWORK ERROR: ${err.message}`, "#ff4444");
+            }
+        }
+    </script>
+</body>
+</html>
+
