@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <i class="fas fa-sparkles" style="color: white; font-size: 0.9rem;"></i>
                     </div>
                     <div>
-                        <span style="color: white; font-weight: 600; font-size: 0.95rem; display: block; letter-spacing: 0.3px;">Chandra Assistant</span>
+                        <span style="color: white; font-weight: 600; font-size: 0.95rem; display: block; letter-spacing: 0.3px;">Chandracloud Assistant</span>
                         <span style="color: #94a3b8; font-size: 0.75rem; display: block;">Powered by Gemini Pro</span>
                     </div>
                 </div>
@@ -160,3 +160,4 @@ async function sendMessage() {
             </div>`;
     }
 }
+
