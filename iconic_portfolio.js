@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. DEFINE THE ICONIC CARD HTML
+    // 1. DEFINE THE ICONIC CARD HTML (No Changes here)
     const iconicCardHTML = `
     <div class="premium-card" style="background: white; border: 2px solid #202124; border-radius: 12px; padding: 1.5rem; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; position: relative; overflow: hidden;">
         <div class="card-badge" style="position: absolute; top: 0; right: 0; background: #202124; color: white; padding: 5px 12px; border-bottom-left-radius: 10px; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px;">PROTOTYPE</div>
@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if(hustleGrid) {
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = iconicCardHTML;
-        // Prepend adds it as the FIRST item in the grid
         hustleGrid.insertBefore(tempDiv.firstElementChild, hustleGrid.firstChild);
     }
 });
@@ -37,12 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
 function goToSubscribe() {
     const computeSection = document.getElementById('compute');
     const navLinks = document.querySelectorAll('.section-content');
-    
-    // Switch Section
     navLinks.forEach(s => s.classList.remove('active'));
     computeSection.classList.add('active');
-    
-    // Scroll & Highlight
     setTimeout(() => {
         const card = document.getElementById('aiLaunchpadCard');
         if(card) {
@@ -58,7 +53,7 @@ function goToSubscribe() {
 function downloadRealTemplate() {
     var zip = new JSZip();
 
-    // 1. INDEX.HTML (RENAMED FROM FOLIO.HTML FOR AUTO-LOAD)
+    // 1. UPDATED INDEX.HTML (Added AI Widget CSS/HTML/JS)
     var folioHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +82,20 @@ function downloadRealTemplate() {
         .btn-dl { padding: 12px 25px; background: white; color: black; text-decoration: none; border-radius: 50px; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
         .btn-dl:hover { background: var(--primary); box-shadow: 0 0 20px var(--primary); }
         .watermark { position: absolute; bottom: 20px; right: 30px; font-size: 0.8rem; color: rgba(255,255,255,0.3); transform: translateZ(10px); }
-        @media (max-width: 900px) { .tilt-card { grid-template-columns: 1fr; height: auto; margin: 20px 0; transform: none !important; } body { overflow-y: auto; height: auto; display: block; } .profile-side { border-right: none; border-bottom: 1px solid var(--border); align-items: center; text-align: center; } }
+        
+        /* === AI WIDGET CSS === */
+        .ai-widget-btn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 20px rgba(0,242,255,0.4); z-index: 1000; transition: transform 0.2s; }
+        .ai-widget-btn:hover { transform: scale(1.1); }
+        .ai-chat-box { position: fixed; bottom: 100px; right: 30px; width: 350px; height: 450px; background: #1a1a2e; border: 1px solid var(--border); border-radius: 15px; display: none; flex-direction: column; overflow: hidden; z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .chat-header { background: #0f0c29; padding: 15px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; font-size: 0.9rem; }
+        .chat-footer { padding: 15px; border-top: 1px solid var(--border); display: flex; gap: 10px; }
+        .chat-input { flex: 1; background: rgba(255,255,255,0.1); border: none; padding: 10px; color: white; border-radius: 5px; }
+        .msg { margin-bottom: 10px; padding: 10px; border-radius: 8px; max-width: 80%; }
+        .msg.bot { background: rgba(0,242,255,0.1); align-self: flex-start; color: #fff; }
+        .msg.user { background: var(--primary); color: #000; align-self: flex-end; margin-left: auto; }
+
+        @media (max-width: 900px) { .tilt-card { grid-template-columns: 1fr; height: auto; margin: 20px 0; transform: none !important; } body { overflow-y: auto; height: auto; display: block; } .profile-side { border-right: none; border-bottom: 1px solid var(--border); align-items: center; text-align: center; } .ai-chat-box { width: 90%; right: 5%; bottom: 100px; } }
     </style>
 </head>
 <body>
@@ -109,8 +117,27 @@ function downloadRealTemplate() {
             <div class="watermark">Deployed via Chandracloud</div>
         </div>
     </div>
+
+    <div class="ai-widget-btn" onclick="toggleChat()">
+        <i class="fas fa-robot" style="font-size: 1.5rem; color: #000;"></i>
+    </div>
+    <div class="ai-chat-box" id="chatBox">
+        <div class="chat-header">
+            <span id="botNameTitle">AI Assistant</span>
+            <i class="fas fa-times" style="cursor: pointer;" onclick="toggleChat()"></i>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="msg bot" id="welcomeMsg">Hello! How can I help you?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask about this portfolio..." onkeypress="handleEnter(event)">
+            <button class="btn-dl" style="padding: 5px 15px;" onclick="sendMsg()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <script src="user_data.js"></script>
     <script>
+        // LOAD DATA
         if(typeof userData !== 'undefined') {
             document.getElementById('uName').innerText = userData.name;
             document.getElementById('uRole').innerText = userData.role;
@@ -122,7 +149,17 @@ function downloadRealTemplate() {
             if(userData.social_links.linkedin) sDiv.innerHTML += \`<a href="\${userData.social_links.linkedin}"><i class="fab fa-linkedin"></i></a>\`;
             const aDiv = document.getElementById('uAttachments');
             userData.attachments.forEach(file => { aDiv.innerHTML += \`<a href="\${file.url}" class="btn-dl"><i class="fas fa-download"></i> \${file.name}</a>\`; });
+
+            // CONFIGURE WIDGET
+            if(userData.ai_agent_instructions && userData.ai_agent_instructions.enabled) {
+                document.getElementById('botNameTitle').innerText = userData.ai_agent_instructions.agent_name;
+                document.getElementById('welcomeMsg').innerText = userData.ai_agent_instructions.welcome_msg;
+            } else {
+                document.querySelector('.ai-widget-btn').style.display = 'none';
+            }
         }
+
+        // TILT EFFECT
         const card = document.getElementById('card');
         const container = document.body;
         if(window.innerWidth > 900) {
@@ -134,11 +171,44 @@ function downloadRealTemplate() {
             container.addEventListener('mouseenter', (e) => { card.style.transition = 'none'; });
             container.addEventListener('mouseleave', (e) => { card.style.transition = 'all 0.5s ease'; card.style.transform = \`rotateY(0deg) rotateX(0deg)\`; });
         }
+
+        // CHAT FUNCTIONS
+        function toggleChat() {
+            const box = document.getElementById('chatBox');
+            box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+        }
+        function handleEnter(e) { if(e.key === 'Enter') sendMsg(); }
+        
+        async function sendMsg() {
+            const input = document.getElementById('chatInput');
+            const body = document.getElementById('chatBody');
+            const txt = input.value;
+            if(!txt) return;
+
+            // User Msg
+            body.innerHTML += \`<div class="msg user">\${txt}</div>\`;
+            input.value = '';
+            body.scrollTop = body.scrollHeight;
+
+            // Simulate Loading
+            const loadId = 'load'+Date.now();
+            body.innerHTML += \`<div class="msg bot" id="\${loadId}">...</div>\`;
+            body.scrollTop = body.scrollHeight;
+
+            // HERE WE WOULD CALL CHANDRACLOUD BACKEND API
+            // For Prototype, we simulate based on local context
+            setTimeout(() => {
+                document.getElementById(loadId).remove();
+                // In production: fetch('https://api.chandracloud.net/chat', { method: 'POST', body: JSON.stringify({ context: userData, query: txt }) })
+                body.innerHTML += \`<div class="msg bot">Thanks for asking about \${userData.name}. As an AI managed by Chandracloud, I would forward this query to the backend using the context provided in Section 5. (Backend Integration Ready)</div>\`;
+                body.scrollTop = body.scrollHeight;
+            }, 1000);
+        }
     </script>
 </body>
 </html>`;
 
-    // 2. USER_DATA.JS
+    // 2. UPDATED USER_DATA.JS (Added Section 5)
     var jsContent = `const userData = {
     // 1. BASIC DETAILS
     name: "Arjun",
@@ -148,8 +218,7 @@ function downloadRealTemplate() {
     profile_image_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
 
     // 2. THE AI BRAIN (THEORY)
-    // This text is read by Chandracloud AI Agent to recommend you.
-    ai_knowledge_base: "I am an expert in Candid Wedding Photography with 7 years of experience in South Indian traditions. My style is cinematic and natural, strictly avoiding artificial poses. I use Sony Alpha A7IV and G-Master lenses. I am available for destination weddings in Hyderabad, Bangalore, and Goa. My pricing starts from 1 Lakh per day. I also provide drone videography and premium leather albums.",
+    ai_knowledge_base: "I am an expert in Candid Wedding Photography with 7 years of experience in South Indian traditions. My style is cinematic and natural, strictly avoiding artificial poses. I use Sony Alpha A7IV and G-Master lenses. I am available for destination weddings in Hyderabad, Bangalore, and Goa. My pricing starts from 1 Lakh per day.",
 
     // 3. SOCIAL LINKS
     social_links: {
@@ -162,22 +231,31 @@ function downloadRealTemplate() {
     attachments: [
         { name: "Download Pricing PDF", url: "#" },
         { name: "View Best Shots", url: "#" }
-    ]
+    ],
+
+    // 5. AI AGENT INSTRUCTIONS (NEW)
+    // This controls how your Widget talks to visitors
+    ai_agent_instructions: {
+        enabled: true,
+        agent_name: "Arjun's AI",
+        welcome_msg: "Hi! I handle Arjun's bookings. Ask me about dates or pricing.",
+        system_prompt: "You are a helpful assistant for a photographer. Use the 'ai_knowledge_base' to answer questions. Be polite and professional."
+    }
 };`;
 
-    // 3. DOCKERFILE
+    // 3. DOCKERFILE (No Change)
     var dockerContent = `FROM nginx:alpine
 COPY . /usr/share/nginx/html
 RUN sed -i 's/listen       80;/listen       8080;/g' /etc/nginx/conf.d/default.conf
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]`;
 
-    // 4. README
+    // 4. README (Updated)
     var readmeContent = `
 CHANDRA CLOUD - ICONIC TEMPLATE
 ===============================
 1. Open 'user_data.js' and edit your details.
-2. Replace your theory in AI context, images or add PDFs to this folder.
+2. SECTION 5 in user_data.js controls your AI Widget.
 3. Upload this folder to Chandracloud AI Launchpad to Deploy.
     `;
 
@@ -191,5 +269,4 @@ CHANDRA CLOUD - ICONIC TEMPLATE
     zip.generateAsync({type:"blob"}).then(function(content) {
         saveAs(content, "Chandracloud-Iconic-Portfolio.zip");
     });
-
 }
