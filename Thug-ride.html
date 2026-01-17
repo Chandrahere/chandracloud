@@ -36,10 +36,10 @@
         .back-link { color: var(--text-gray); text-decoration: none; font-weight: 600; transition: 0.3s; font-size: 0.9rem; }
         .back-link:hover { color: var(--primary); }
 
-        /* HERO SECTION - Clean & Airy */
+        /* HERO SECTION */
         .hero {
-            height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 0 20px;
+            height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 20px; margin-top: 60px;
             background: radial-gradient(circle at center, #ffffff 0%, #e5e7eb 100%);
         }
         .hero h1 {
@@ -59,24 +59,22 @@
 
         /* GRID SYSTEM */
         .container { max-width: 1200px; margin: -50px auto 100px; padding: 0 20px; position: relative; z-index: 10; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px; }
 
         /* PREMIUM CARD DESIGN */
         .card {
             background: var(--card-bg); border-radius: 20px; overflow: hidden;
             box-shadow: var(--shadow-soft); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative; opacity: 0; animation: fadeUp 0.8s ease forwards;
+            display: flex; flex-direction: column;
         }
-        /* Stagger animations for cards */
-        .card:nth-child(1) { animation-delay: 0.5s; }
-        .card:nth-child(2) { animation-delay: 0.7s; }
-        .card:nth-child(3) { animation-delay: 0.9s; }
-        .card:nth-child(4) { animation-delay: 1.1s; }
+        /* Stagger animations */
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+        .card:nth-child(3) { animation-delay: 0.6s; }
+        .card:nth-child(4) { animation-delay: 0.8s; } /* The Add Card */
 
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
+        .card:hover { transform: translateY(-15px); box-shadow: var(--shadow-hover); }
 
         .img-box { height: 250px; overflow: hidden; position: relative; background: #f0f0f0; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
@@ -88,7 +86,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .details { padding: 25px; }
+        .details { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
         .title { font-size: 1.4rem; font-weight: 800; color: var(--text-dark); margin-bottom: 5px; }
         .specs { display: flex; gap: 15px; font-size: 0.85rem; color: var(--text-gray); margin: 15px 0; }
         .specs span { display: flex; align-items: center; gap: 5px; }
@@ -98,26 +96,60 @@
         .price-tag span { font-size: 0.9rem; font-weight: 500; color: var(--text-gray); }
 
         .actions { margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn {
-            padding: 12px; border-radius: 10px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s;
-        }
+        .btn { padding: 12px; border-radius: 10px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; }
         .btn-play { background: #f3f4f6; color: var(--text-dark); }
         .btn-play:hover { background: #e5e7eb; }
         .btn-rent { background: var(--text-dark); color: white; }
         .btn-rent:hover { background: var(--primary); }
 
-        /* VISIT GARAGE BANNER */
-        .visit-banner {
-            margin-top: 80px; padding: 60px; background: #fff; border-radius: 20px; text-align: center;
-            box-shadow: var(--shadow-soft);
+        /* THE NEW "ADD VEHICLE" CARD STYLES */
+        .card-add {
+            border: 2px dashed #cbd5e1; background: #f8fafc;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; cursor: pointer; min-height: 480px; /* Match approximate height of other cards */
         }
-        .visit-banner h2 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
-        .visit-banner p { color: var(--text-gray); margin-bottom: 30px; }
-        .visit-btn {
-            padding: 15px 40px; background: var(--accent); color: white; text-decoration: none;
-            border-radius: 50px; font-weight: bold; box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3); transition: 0.3s;
+        .card-add:hover { background: #ffffff; border-color: var(--primary); }
+        .add-icon {
+            font-size: 3rem; color: #cbd5e1; margin-bottom: 20px; transition: 0.3s;
+            background: #fff; padding: 20px; border-radius: 50%; box-shadow: var(--shadow-soft);
         }
-        .visit-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(249, 115, 22, 0.4); }
+        .card-add:hover .add-icon { color: var(--primary); transform: scale(1.1); }
+        .add-text h3 { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); }
+        .add-text p { color: var(--text-gray); font-size: 0.9rem; margin-top: 5px; padding: 0 20px; }
+
+        /* MODAL (POPUP) STYLES */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+            display: none; justify-content: center; align-items: center; z-index: 2000;
+        }
+        .modal-content {
+            background: white; padding: 40px; border-radius: 20px; width: 90%; max-width: 500px;
+            box-shadow: var(--shadow-hover); animation: fadeUp 0.3s ease; position: relative;
+        }
+        .close-modal { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 1.2rem; color: var(--text-gray); }
+        
+        .form-step { display: none; }
+        .form-step.active { display: block; }
+
+        .google-btn {
+            width: 100%; padding: 12px; background: white; border: 1px solid #ddd; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; cursor: pointer; margin-top: 20px;
+        }
+        .google-btn:hover { background: #f9f9f9; }
+
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; }
+        .input-group input, .input-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+
+        .service-option {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px; border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; cursor: pointer;
+        }
+        .service-option:hover { background: #f9faff; border-color: var(--primary); }
+        .service-option.selected { background: #eff6ff; border-color: var(--primary); }
+        
+        .submit-btn { width: 100%; background: var(--primary); color: white; padding: 15px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 20px; }
 
         /* ANIMATIONS */
         @keyframes fadeUp {
@@ -151,7 +183,7 @@
                 <div class="details">
                     <div class="title">Infiniti QX60</div>
                     <div class="specs">
-                        <span><i class="fas fa-tachometer-alt"></i> 190k mi</span>
+                        <span><i class="fas fa-tachometer-alt"></i> 200k+ mi</span>
                         <span><i class="fas fa-gas-pump"></i> V6</span>
                         <span><i class="fas fa-user"></i> 7 Seats</span>
                     </div>
@@ -161,7 +193,7 @@
                     </div>
                     <div class="actions">
                         <button class="btn btn-play">🎮 Test Drive (VR)</button>
-                        <button class="btn btn-rent" onclick="alert('Booking Flow Coming Soon with Stripe!')">Rent Key</button>
+                        <button class="btn btn-rent" onclick="openStripe('Infiniti QX60')">Rent Key</button>
                     </div>
                 </div>
             </div>
@@ -183,7 +215,7 @@
                     </div>
                     <div class="actions">
                         <button class="btn btn-play">🎮 Test Drive (VR)</button>
-                        <button class="btn btn-rent" onclick="alert('Booking Flow Coming Soon with Stripe!')">Rent Key</button>
+                        <button class="btn btn-rent" onclick="openStripe('Mustang GT')">Rent Key</button>
                     </div>
                 </div>
             </div>
@@ -205,8 +237,18 @@
                     </div>
                     <div class="actions">
                         <button class="btn btn-play">🎮 Test Drive (VR)</button>
-                        <button class="btn btn-rent" onclick="alert('Booking Flow Coming Soon with Stripe!')">Rent Key</button>
+                        <button class="btn btn-rent" onclick="openStripe('Tesla Model S')">Rent Key</button>
                     </div>
+                </div>
+            </div>
+
+            <div class="card card-add" onclick="openListModal()">
+                <div class="add-icon">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="add-text">
+                    <h3>List Your Vehicle</h3>
+                    <p>Car, Truck, or Bike. Turn your idle asset into an earning machine.</p>
                 </div>
             </div>
 
@@ -219,5 +261,141 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="listModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeListModal()">&times;</span>
+            
+            <div id="step1" class="form-step active">
+                <h2 style="margin-bottom: 10px;">Partner with Chandra</h2>
+                <p style="color:var(--text-gray); margin-bottom: 20px;">Join the fleet. List your vehicle and start earning energy credits.</p>
+                <button class="google-btn" onclick="handleGoogleLogin()">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="G" width="20">
+                    Continue with Google
+                </button>
+            </div>
+
+            <div id="step2" class="form-step">
+                <h2 style="margin-bottom: 20px;">Vehicle Details</h2>
+                <div class="input-group">
+                    <label>Vehicle Type</label>
+                    <select id="vType">
+                        <option value="car">Car (SUV/Sedan)</option>
+                        <option value="truck">Truck / Hauler</option>
+                        <option value="bike">Motorcycle</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Model & Year</label>
+                    <input type="text" placeholder="e.g. Infiniti QX60 2014">
+                </div>
+                <button class="submit-btn" onclick="goToStep3()">Next: Select Services</button>
+            </div>
+
+            <div id="step3" class="form-step">
+                <h2 style="margin-bottom: 10px;">Select Services</h2>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">How do you want your vehicle to be used?</p>
+                
+                <div class="service-option" onclick="toggleService(this)">
+                    <div>
+                        <strong>Rentals</strong><br>
+                        <span style="font-size:0.8rem; color:#666;">Users self-drive your car</span>
+                    </div>
+                    <i class="far fa-circle"></i>
+                </div>
+
+                <div class="service-option" onclick="toggleService(this)">
+                    <div>
+                        <strong>Chauffeur / Rides</strong><br>
+                        <span style="font-size:0.8rem; color:#666;">Driver provided (You or Ours)</span>
+                    </div>
+                    <i class="far fa-circle"></i>
+                </div>
+
+                <div class="service-option" onclick="toggleService(this)">
+                    <div>
+                        <strong>Hauling / Moving</strong><br>
+                        <span style="font-size:0.8rem; color:#666;">Heavy lifting help</span>
+                    </div>
+                    <i class="far fa-circle"></i>
+                </div>
+
+                <button class="submit-btn" onclick="finishListing()">Launch Listing 🚀</button>
+            </div>
+
+            <div id="step4" class="form-step" style="text-align: center;">
+                <i class="fas fa-check-circle" style="font-size: 3rem; color: #10b981; margin-bottom: 20px;"></i>
+                <h2>Welcome to the Fleet!</h2>
+                <p style="margin: 15px 0;">Your vehicle is under review. Please connect your bank account to receive earnings.</p>
+                <button class="google-btn" style="background: #635bff; color: white; border: none;" onclick="closeListModal()">
+                    Connect Stripe
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('listModal');
+
+        function openListModal() {
+            modal.style.display = 'flex';
+            document.getElementById('step1').classList.add('active');
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step3').classList.remove('active');
+            document.getElementById('step4').classList.remove('active');
+        }
+
+        function closeListModal() {
+            modal.style.display = 'none';
+        }
+
+        // Fake Google Login
+        function handleGoogleLogin() {
+            const btn = document.querySelector('.google-btn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+            setTimeout(() => {
+                document.getElementById('step1').classList.remove('active');
+                document.getElementById('step2').classList.add('active');
+            }, 1500);
+        }
+
+        function goToStep3() {
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step3').classList.add('active');
+        }
+
+        // Service Toggle Logic
+        function toggleService(element) {
+            element.classList.toggle('selected');
+            const icon = element.querySelector('i');
+            if(element.classList.contains('selected')) {
+                icon.classList.remove('fa-circle', 'far');
+                icon.classList.add('fa-check-circle', 'fas', 'text-blue-600');
+                icon.style.color = 'var(--primary)';
+            } else {
+                icon.classList.add('fa-circle', 'far');
+                icon.classList.remove('fa-check-circle', 'fas');
+                icon.style.color = '#ccc';
+            }
+        }
+
+        function finishListing() {
+            document.getElementById('step3').classList.remove('active');
+            document.getElementById('step4').classList.add('active');
+        }
+
+        // Placeholder for Stripe
+        function openStripe(carName) {
+            alert("Initiating Stripe Checkout for " + carName + "...\n(Backend Integration Pending)");
+        }
+
+        // Close modal if clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeListModal();
+            }
+        }
+    </script>
 </body>
 </html>
