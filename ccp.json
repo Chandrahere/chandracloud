@@ -24,6 +24,16 @@
       "price": 45
     },
     {
+      "id": "AG-9900",
+      "city": "Tirupati",
+      "category": "Tech Tools",
+      "store": "Chandracloud Central Hub",
+      "name": "New GCP Module Name",
+      "quality": "Production Ready",
+      "quantity": 10,
+      "price": 150
+    },
+    {
       "id": "AG-FD01",
       "city": "Tirupati",
       "category": "Grocery Supplies",
