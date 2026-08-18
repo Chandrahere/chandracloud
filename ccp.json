@@ -1,47 +1,67 @@
 {
-  "cities": ["Tirupati", "Hyderabad", "Guntur", "Bengaluru", "Plano", "Chennai"],
-  "categories": ["Tech Tools", "Boutique Products", "Grocery Supplies", "EV Parts", "Rackets", "Music Strings"],
-  "stores": ["Chandracloud Central Hub", "Local Tech Depot", "Prime Express Store", "HyperMarket Retail"],
-  "products": [
+  "cities": ["Tirupati", "Hyderabad", "Bengaluru"],
+  "categories": ["Grocery Supplies", "Tech Tools", "EV Parts"],
+  
+  "master_products": [
     {
-      "id": "AG-8821",
-      "city": "Tirupati",
-      "category": "Tech Tools",
-      "store": "Chandracloud Central Hub",
-      "name": "GCP Cloud Run CI/CD Pipeline",
-      "quality": "Production Ready (Code)",
-      "quantity": 12,
-      "price": 120
-    },
-    {
-      "id": "AG-4019",
-      "city": "Hyderabad",
-      "category": "Tech Tools",
-      "store": "Local Tech Depot",
-      "name": "SaaS Pitch Deck & Valuation Model",
-      "quality": "Verified Template",
-      "quantity": 50,
-      "price": 45
-    },
-    {
-      "id": "AG-9900",
-      "city": "Tirupati",
-      "category": "Tech Tools",
-      "store": "Chandracloud Central Hub",
-      "name": "New GCP Module Name",
-      "quality": "Production Ready",
-      "quantity": 10,
-      "price": 150
-    },
-    {
-      "id": "AG-FD01",
-      "city": "Tirupati",
-      "category": "Grocery Supplies",
-      "store": "Prime Express Store",
+      "id": "PROD-001",
       "name": "Guntur Red Chilli Powder (1kg)",
-      "quality": "Pure & Spicy Grade A",
-      "quantity": 100,
-      "price": 8
+      "category": "Grocery Supplies",
+      "base_price": 100,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/chilli.jpg",
+      "quality": "Pure & Spicy Grade A"
+    },
+    {
+      "id": "PROD-002",
+      "name": "Organic Turmeric Powder (500g)",
+      "category": "Grocery Supplies",
+      "base_price": 50,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/turmeric.jpg",
+      "quality": "100% Pure Organic"
+    },
+    {
+      "id": "PROD-003",
+      "name": "GCP Cloud Run CI/CD Pipeline",
+      "category": "Tech Tools",
+      "base_price": 5000,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/gcp.jpg",
+      "quality": "Production Ready"
+    }
+  ],
+
+  "stores": [
+    {
+      "id": "STORE-001",
+      "name": "Prime Express Store",
+      "city": "Tirupati",
+      "markup_percentage": 5, 
+      "assigned_products": [
+        {
+          "product_id": "PROD-001",
+          "quantity": 50
+        },
+        {
+          "product_id": "PROD-002",
+          "quantity": 30,
+          "custom_markup_percentage": 8
+        }
+      ]
+    },
+    {
+      "id": "STORE-002",
+      "name": "Chandracloud Central Hub",
+      "city": "Tirupati",
+      "markup_percentage": 10,
+      "assigned_products": [
+        {
+          "product_id": "PROD-001",
+          "quantity": 100
+        },
+        {
+          "product_id": "PROD-003",
+          "quantity": 15
+        }
+      ]
     }
   ]
 }
