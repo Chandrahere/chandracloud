@@ -1,0 +1,37 @@
+{
+  "cities": ["Tirupati", "Hyderabad", "Guntur", "Bengaluru", "Plano", "Chennai"],
+  "categories": ["Tech Tools", "Boutique Products", "Grocery Supplies", "EV Parts", "Rackets", "Music Strings"],
+  "stores": ["Chandracloud Central Hub", "Local Tech Depot", "Prime Express Store", "HyperMarket Retail"],
+  "products": [
+    {
+      "id": "AG-8821",
+      "city": "Tirupati",
+      "category": "Tech Tools",
+      "store": "Chandracloud Central Hub",
+      "name": "GCP Cloud Run CI/CD Pipeline",
+      "quality": "Production Ready (Code)",
+      "quantity": 12,
+      "price": 120
+    },
+    {
+      "id": "AG-4019",
+      "city": "Hyderabad",
+      "category": "Tech Tools",
+      "store": "Local Tech Depot",
+      "name": "SaaS Pitch Deck & Valuation Model",
+      "quality": "Verified Template",
+      "quantity": 50,
+      "price": 45
+    },
+    {
+      "id": "AG-FD01",
+      "city": "Tirupati",
+      "category": "Grocery Supplies",
+      "store": "Prime Express Store",
+      "name": "Guntur Red Chilli Powder (1kg)",
+      "quality": "Pure & Spicy Grade A",
+      "quantity": 100,
+      "price": 8
+    }
+  ]
+}
