@@ -27,6 +27,22 @@
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/gcp.jpg",
       "quality": "Production Ready"
     }
+    {
+      "id": "PROD-004",
+      "name": "Swift Dzire 2018 (CNG)",
+      "category": "EV Parts",
+      "base_price": 450000,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/swift_dzire.jpg",
+      "quality": "Well Maintained with CNG Kit"
+    },
+    {
+      "id": "PROD-005",
+      "name": "Innova Crysta 2024",
+      "category": "EV Parts",
+      "base_price": 1800000,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/crysta.jpg",
+      "quality": "Top End Model Like New"
+    }
   ],
 
   "stores": [
@@ -60,6 +76,22 @@
         {
           "product_id": "PROD-003",
           "quantity": 15
+        }
+      ]
+    },
+    {
+      "id": "STORE-003",
+      "name": "Lakshmi Car Bazaar",
+      "city": "Tirupati",
+      "markup_percentage": 10,
+      "assigned_products": [
+        {
+          "product_id": "PROD-004",
+          "quantity": 2
+        },
+        {
+          "product_id": "PROD-005",
+          "quantity": 1
         }
       ]
     }
