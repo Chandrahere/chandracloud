@@ -113,6 +113,7 @@
       "name": "Raythu Bazzar",
       "city": "Tirupati",
       "markup_percentage": 5,
+      "markup_label": "Taxes & Service Charge: 5%",
       "assigned_products": [
         {
           "product_id": "PROD-001",
@@ -121,7 +122,8 @@
         {
           "product_id": "PROD-002",
           "quantity": 30,
-          "custom_markup_percentage": 8
+          "custom_markup_percentage": 8,
+          "custom_markup_label": "Taxes & Delivery Charge: 8%"
         }
       ]
     },
@@ -130,6 +132,7 @@
       "name": "Chandracloud Central Hub",
       "city": "Tirupati",
       "markup_percentage": 10,
+      "markup_label": "Taxes & Store Charge: 10%",
       "assigned_products": [
         {
           "product_id": "PROD-201",
@@ -154,6 +157,7 @@
       "name": "Lakshmi Car & EV Bazaar",
       "city": "Tirupati",
       "markup_percentage": 10,
+      "markup_label": "Taxes & RTO Processing: 10%",
       "assigned_products": [
         {
           "product_id": "PROD-301",
