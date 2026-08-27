@@ -1,12 +1,19 @@
 {
   "cities": ["Tirupati", "Hyderabad", "Bengaluru"],
-  "categories": ["Grocery Supplies", "Tech Tools", "EV vehicles"],
-  
+  "categories": [
+    "Raw Provisions",
+    "Housing Inventory",
+    "Capital Goods",
+    "EV vehicles",
+    "Field Drones",
+    "Apparel & Fashion",
+    "Health"
+  ],
   "master_products": [
     {
       "id": "PROD-001",
       "name": "Guntur Red Chilli Powder (1kg)",
-      "category": "Grocery Supplies",
+      "category": "Raw Provisions",
       "base_price": 100,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/chilli.jpg",
       "quality": "Pure & Spicy Grade A"
@@ -14,43 +21,98 @@
     {
       "id": "PROD-002",
       "name": "Organic Turmeric Powder (500g)",
-      "category": "Grocery Supplies",
+      "category": "Raw Provisions",
       "base_price": 50,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/turmeric.jpg",
       "quality": "100% Pure Organic"
     },
     {
-      "id": "PROD-003",
-      "name": "GCP Cloud Run CI/CD Pipeline",
-      "category": "Tech Tools",
-      "base_price": 5000,
-      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/gcp.jpg",
-      "quality": "Production Ready"
+      "id": "PROD-101",
+      "name": "Modular Smart Home Switchboard Hub",
+      "category": "Housing Inventory",
+      "base_price": 12000,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/housing_switchboard.jpg",
+      "quality": "Fireproof & IoT Integrated"
     },
     {
-      "id": "PROD-004",
-      "name": "Swift Dzire 2018 (CNG)",
-      "category": "EV vehicles",
-      "base_price": 450000,
-      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/swift_dzire.jpg",
-      "quality": "Well Maintained with CNG Kit"
+      "id": "PROD-201",
+      "name": "Automotive CAN-Bus ECU Mainboard V3",
+      "category": "Capital Goods",
+      "base_price": 8500,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/ecu_board.jpg",
+      "quality": "Industrial Grade Automotive PCB"
     },
     {
-      "id": "PROD-005",
-      "name": "Innova Crysta 2024",
+      "id": "PROD-202",
+      "name": "Smart Home Automation Master PCB Controller",
+      "category": "Capital Goods",
+      "base_price": 4500,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/home_pcb.jpg",
+      "quality": "Custom Firmware & Multi-Relay"
+    },
+    {
+      "id": "PROD-203",
+      "name": "EV Battery Management System (BMS) Circuit Board",
+      "category": "Capital Goods",
+      "base_price": 11000,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/ev_bms_board.jpg",
+      "quality": "High Thermal Stability 72V"
+    },
+    {
+      "id": "PROD-204",
+      "name": "Drone Flight Controller Electronics Board (FCB)",
+      "category": "Capital Goods",
+      "base_price": 9500,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/drone_fcb.jpg",
+      "quality": "Ultra Low Latency Sensor Chipset"
+    },
+    {
+      "id": "PROD-301",
+      "name": "Ather 450X Gen 3 (EV Scooter)",
       "category": "EV vehicles",
-      "base_price": 1800000,
-      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/crysta.jpg",
-      "quality": "Top End Model Like New"
+      "base_price": 145000,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/ather.jpg",
+      "quality": "Mint Condition Battery Health 98%"
+    },
+    {
+      "id": "PROD-302",
+      "name": "Tata Nexon EV Max 2024",
+      "category": "EV vehicles",
+      "base_price": 1650000,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/nexon_ev.jpg",
+      "quality": "Long Range Top Variant"
+    },
+    {
+      "id": "PROD-401",
+      "name": "AgriSpray 10L Field Spraying Drone",
+      "category": "Field Drones",
+      "base_price": 350000,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/agri_drone.jpg",
+      "quality": "GPS Autonomous Navigation"
+    },
+    {
+      "id": "PROD-501",
+      "name": "Chandra Cloud Tech Crew Cotton Hoodie",
+      "category": "Apparel & Fashion",
+      "base_price": 1200,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/hoodie.jpg",
+      "quality": "100% Premium Bio-Washed Cotton"
+    },
+    {
+      "id": "PROD-601",
+      "name": "Digital Smart Pulse Oximeter & Monitor",
+      "category": "Health",
+      "base_price": 1500,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/oximeter.jpg",
+      "quality": "Medical Grade Precision"
     }
   ],
-
   "stores": [
     {
       "id": "STORE-001",
       "name": "Raythu Bazzar",
       "city": "Tirupati",
-      "markup_percentage": 5, 
+      "markup_percentage": 5,
       "assigned_products": [
         {
           "product_id": "PROD-001",
@@ -70,28 +132,36 @@
       "markup_percentage": 10,
       "assigned_products": [
         {
-          "product_id": "PROD-001",
-          "quantity": 100
+          "product_id": "PROD-201",
+          "quantity": 25
         },
         {
-          "product_id": "PROD-003",
+          "product_id": "PROD-202",
+          "quantity": 40
+        },
+        {
+          "product_id": "PROD-203",
           "quantity": 15
+        },
+        {
+          "product_id": "PROD-501",
+          "quantity": 100
         }
       ]
     },
     {
       "id": "STORE-003",
-      "name": "Lakshmi Car Bazaar",
+      "name": "Lakshmi Car & EV Bazaar",
       "city": "Tirupati",
       "markup_percentage": 10,
       "assigned_products": [
         {
-          "product_id": "PROD-004",
-          "quantity": 2
+          "product_id": "PROD-301",
+          "quantity": 5
         },
         {
-          "product_id": "PROD-005",
-          "quantity": 1
+          "product_id": "PROD-302",
+          "quantity": 2
         }
       ]
     }
