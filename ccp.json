@@ -27,6 +27,86 @@
       "quality": "100% Pure Organic"
     },
     {
+      "id": "PROD-003",
+      "name": "Organic Korralu / Foxtail Millet (1kg)",
+      "category": "Raw Provisions",
+      "base_price": 90,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/korralu.jpg",
+      "quality": "Unpolished & High Fiber Grade A"
+    },
+    {
+      "id": "PROD-004",
+      "name": "Desi Jonnalu / Sorghum Grains (1kg)",
+      "category": "Raw Provisions",
+      "base_price": 60,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/jonnalu.jpg",
+      "quality": "Farm Fresh Native Variety"
+    },
+    {
+      "id": "PROD-005",
+      "name": "Pearl Millet / Sajjalu (1kg)",
+      "category": "Raw Provisions",
+      "base_price": 55,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/sajjalu.jpg",
+      "quality": "100% Organic Cleaned Grains"
+    },
+    {
+      "id": "PROD-006",
+      "name": "Finger Millet / Ragulu (1kg)",
+      "category": "Raw Provisions",
+      "base_price": 65,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/ragulu.jpg",
+      "quality": "Rich Calcium & Iron Grade A"
+    },
+    {
+      "id": "PROD-007",
+      "name": "Premium Kandipappu / Toor Dal (1kg)",
+      "category": "Raw Provisions",
+      "base_price": 160,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/kandipappu.jpg",
+      "quality": "Unpolished Unpolished Pulse"
+    },
+    {
+      "id": "PROD-008",
+      "name": "Fresh Red Onions (1kg)",
+      "category": "Raw Provisions",
+      "base_price": 35,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/onions.jpg",
+      "quality": "Direct Farm Harvest Size-A"
+    },
+    {
+      "id": "PROD-009",
+      "name": "Paccha Pesalu / Whole Green Gram (1kg)",
+      "category": "Raw Provisions",
+      "base_price": 120,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/paccha_pesalu.jpg",
+      "quality": "High Protein Natural Crop"
+    },
+    {
+      "id": "PROD-010",
+      "name": "Organic Bananas / Yelakki Bananas (1 Dozen)",
+      "category": "Raw Provisions",
+      "base_price": 60,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/bananas.jpg",
+      "quality": "Naturally Ripened Sweet Grade"
+    },
+    {
+      "id": "PROD-011",
+      "name": "Banginapalli Mangoes (1kg)",
+      "category": "Raw Provisions",
+      "base_price": 110,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/mangoes.jpg",
+      "quality": "Carbide Free Premium Sweet"
+    },
+    {
+      "id": "PROD-012",
+      "name": "Organic Groundnut Oil (1 Litre)",
+      "category": "Raw Provisions",
+      "base_price": 210,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/groundnut_oil.jpg",
+      "quality": "Cold Pressed Traditional Ganuga"
+    },
+    {
       "id": "PROD-101",
       "name": "Modular Smart Home Switchboard Hub",
       "category": "Housing Inventory",
@@ -111,9 +191,8 @@
     {
       "id": "STORE-001",
       "name": "Raythu Bazzar",
-      "city": "Tirupati",
+      "city": "Tirupati(Free Delivery)",
       "markup_percentage": 5,
-      "markup_label": "Taxes & Service Charge: 5%",
       "assigned_products": [
         {
           "product_id": "PROD-001",
@@ -122,17 +201,55 @@
         {
           "product_id": "PROD-002",
           "quantity": 30,
-          "custom_markup_percentage": 8,
-          "custom_markup_label": "Taxes & Delivery Charge: 8%"
+          "custom_markup_percentage": 8
+        },
+        {
+          "product_id": "PROD-003",
+          "quantity": 40
+        },
+        {
+          "product_id": "PROD-004",
+          "quantity": 35
+        },
+        {
+          "product_id": "PROD-005",
+          "quantity": 25
+        },
+        {
+          "product_id": "PROD-006",
+          "quantity": 50
+        },
+        {
+          "product_id": "PROD-007",
+          "quantity": 100
+        },
+        {
+          "product_id": "PROD-008",
+          "quantity": 200
+        },
+        {
+          "product_id": "PROD-009",
+          "quantity": 60
+        },
+        {
+          "product_id": "PROD-010",
+          "quantity": 80
+        },
+        {
+          "product_id": "PROD-011",
+          "quantity": 70
+        },
+        {
+          "product_id": "PROD-012",
+          "quantity": 45
         }
       ]
     },
     {
       "id": "STORE-002",
-      "name": "Chandracloud Central Hub",
-      "city": "Tirupati",
+      "name": "Chandracloud Central Circuits Hub",
+      "city": "Tirupati(Free Delivery)",
       "markup_percentage": 10,
-      "markup_label": "Taxes & Store Charge: 10%",
       "assigned_products": [
         {
           "product_id": "PROD-201",
@@ -155,9 +272,8 @@
     {
       "id": "STORE-003",
       "name": "Lakshmi Car & EV Bazaar",
-      "city": "Tirupati",
+      "city": "Tirupati(Free Delivery)",
       "markup_percentage": 10,
-      "markup_label": "Taxes & RTO Processing: 10%",
       "assigned_products": [
         {
           "product_id": "PROD-301",
