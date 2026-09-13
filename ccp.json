@@ -2,8 +2,7 @@
   "cities": ["Tirupati(Free Delivery)", "Hyderabad", "Bengaluru"],
   "categories": [
     "Raw Provisions",
-    "Housing Inventory",
-    "Capital Goods",
+    "Housing Capital Goods",
     "EV vehicles",
     "Field Drones",
     "Apparel & Fashion",
@@ -16,7 +15,7 @@
       "category": "Raw Provisions",
       "base_price": 100,
       "image": "https://raw.githubusercontent.com/Chandrahere/chandracloud/main/guntur_chilli_powder.jpeg",
-      "quality": "Pure & Spicy Grade A"
+      "quality": "100% Pure & Spicy - Sourced from Guntur"
     },
     {
       "id": "PROD-002",
@@ -24,7 +23,7 @@
       "category": "Raw Provisions",
       "base_price": 50,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/turmeric.jpg",
-      "quality": "100% Pure Organic"
+      "quality": "Hygiene Crop Received in 30 Days - Tirupati Local"
     },
     {
       "id": "PROD-003",
@@ -32,7 +31,7 @@
       "category": "Raw Provisions",
       "base_price": 90,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/korralu.jpg",
-      "quality": "Unpolished & High Fiber Grade A"
+      "quality": "Unpolished & High Fiber Grade A - Sourced from Nandyal"
     },
     {
       "id": "PROD-004",
@@ -40,7 +39,7 @@
       "category": "Raw Provisions",
       "base_price": 60,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/jonnalu.jpg",
-      "quality": "Farm Fresh Native Variety"
+      "quality": "Farm Fresh Native Variety - Sourced from Nandyal"
     },
     {
       "id": "PROD-005",
@@ -48,7 +47,7 @@
       "category": "Raw Provisions",
       "base_price": 55,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/sajjalu.jpg",
-      "quality": "100% Organic Cleaned Grains"
+      "quality": "100% Organic Cleaned Grains - Sourced from Ananthapur"
     },
     {
       "id": "PROD-006",
@@ -56,7 +55,7 @@
       "category": "Raw Provisions",
       "base_price": 65,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/ragulu.jpg",
-      "quality": "Rich Calcium & Iron Grade A"
+      "quality": "Best Crop Received in 21 Days - Sourced from Ananthapur"
     },
     {
       "id": "PROD-007",
@@ -64,7 +63,7 @@
       "category": "Raw Provisions",
       "base_price": 160,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/kandipappu.jpg",
-      "quality": "Unpolished Unpolished Pulse"
+      "quality": "Unpolished GI Tagged Pulse - Sourced from Ananthapur"
     },
     {
       "id": "PROD-008",
@@ -72,7 +71,7 @@
       "category": "Raw Provisions",
       "base_price": 35,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/onions.jpg",
-      "quality": "Direct Farm Harvest Size-A"
+      "quality": "Direct Farm Harvest Size-A - Sourced from Ananthapur"
     },
     {
       "id": "PROD-009",
@@ -80,7 +79,7 @@
       "category": "Raw Provisions",
       "base_price": 120,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/paccha_pesalu.jpg",
-      "quality": "High Protein Natural Crop"
+      "quality": "High Protein Natural Crop - Sourced from Nandyal"
     },
     {
       "id": "PROD-010",
@@ -88,7 +87,7 @@
       "category": "Raw Provisions",
       "base_price": 60,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/bananas.jpg",
-      "quality": "Naturally Ripened Sweet Grade"
+      "quality": "Naturally Ripened Sweet Grade - Sourced from Chittoor"
     },
     {
       "id": "PROD-011",
@@ -96,7 +95,7 @@
       "category": "Raw Provisions",
       "base_price": 110,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/mangoes.jpg",
-      "quality": "Carbide Free Premium Sweet"
+      "quality": "Carbide Free Premium Sweet - Sourced from Chittoor"
     },
     {
       "id": "PROD-012",
@@ -104,12 +103,12 @@
       "category": "Raw Provisions",
       "base_price": 210,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/groundnut_oil.jpg",
-      "quality": "Cold Pressed Traditional Ganuga"
+      "quality": "Cold Pressed Traditional Ganuga - Sourced from Tirupati Local"
     },
     {
       "id": "PROD-101",
       "name": "Modular Smart Home Switchboard Hub",
-      "category": "Housing Inventory",
+      "category": "Housing Capital Goods",
       "base_price": 12000,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/housing_switchboard.jpg",
       "quality": "Fireproof & IoT Integrated"
@@ -117,7 +116,7 @@
     {
       "id": "PROD-201",
       "name": "Automotive CAN-Bus ECU Mainboard V3",
-      "category": "Capital Goods",
+      "category": "Housing Capital Goods",
       "base_price": 8500,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/ecu_board.jpg",
       "quality": "Industrial Grade Automotive PCB"
@@ -125,7 +124,7 @@
     {
       "id": "PROD-202",
       "name": "Smart Home Automation Master PCB Controller",
-      "category": "Capital Goods",
+      "category": "Housing Capital Goods",
       "base_price": 4500,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/home_pcb.jpg",
       "quality": "Custom Firmware & Multi-Relay"
@@ -133,7 +132,7 @@
     {
       "id": "PROD-203",
       "name": "EV Battery Management System (BMS) Circuit Board",
-      "category": "Capital Goods",
+      "category": "Housing Capital Goods",
       "base_price": 11000,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/ev_bms_board.jpg",
       "quality": "High Thermal Stability 72V"
@@ -141,7 +140,7 @@
     {
       "id": "PROD-204",
       "name": "Drone Flight Controller Electronics Board (FCB)",
-      "category": "Capital Goods",
+      "category": "Housing Capital Goods",
       "base_price": 9500,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/drone_fcb.jpg",
       "quality": "Ultra Low Latency Sensor Chipset"
@@ -185,6 +184,46 @@
       "base_price": 1500,
       "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/oximeter.jpg",
       "quality": "Medical Grade Precision"
+    },
+    {
+      "id": "PROD-602",
+      "name": "Early Morning (6:00 AM) - Raw Wild Forest Honey (500g)",
+      "category": "Health",
+      "base_price": 280,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/raw_honey.jpg",
+      "quality": "Detox Boost - 100% Unprocessed Wild Honey Sourced from Srisailam"
+    },
+    {
+      "id": "PROD-603",
+      "name": "Morning Breakfast (8:00 AM) - Probiotic Ragi Ambali Mix (1kg)",
+      "category": "Health",
+      "base_price": 85,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/ragi_ambali.jpg",
+      "quality": "High Energy & Gut Health - 21 Days Crop Sourced from Ananthapur"
+    },
+    {
+      "id": "PROD-604",
+      "name": "Afternoon Lunch (1:00 PM) - Low GI Unpolished Brown Rice (1kg)",
+      "category": "Health",
+      "base_price": 95,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/brown_rice.jpg",
+      "quality": "Diabetic & Weight Care - Organic Harvest Sourced from Nellore"
+    },
+    {
+      "id": "PROD-605",
+      "name": "Evening Snack (5:00 PM) - Sprouted Seeds & Roasted Nut Mix (500g)",
+      "category": "Health",
+      "base_price": 190,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/nut_mix.jpg",
+      "quality": "High Protein Energy - Hygiene Prepared Tirupati Local"
+    },
+    {
+      "id": "PROD-606",
+      "name": "Night Dinner (8:00 PM) - Lightweight Millet Herbal Soup Powder (250g)",
+      "category": "Health",
+      "base_price": 130,
+      "image": "https://raw.githubusercontent.com/chandrasekhar-tholla/chandra-cloud/main/assets/millet_soup.jpg",
+      "quality": "Easy Digestion & Sleep Support - Natural Blend Sourced from Chittoor"
     }
   ],
   "stores": [
@@ -242,6 +281,26 @@
         {
           "product_id": "PROD-012",
           "quantity": 45
+        },
+        {
+          "product_id": "PROD-602",
+          "quantity": 30
+        },
+        {
+          "product_id": "PROD-603",
+          "quantity": 50
+        },
+        {
+          "product_id": "PROD-604",
+          "quantity": 40
+        },
+        {
+          "product_id": "PROD-605",
+          "quantity": 35
+        },
+        {
+          "product_id": "PROD-606",
+          "quantity": 25
         }
       ]
     },
