@@ -229,7 +229,84 @@
   "stores": [
     {
       "id": "STORE-001",
-      "name": "Raythu Bazzar",
+      "name": "Chandracloud Bazzar",
+      "city": "Tirupati(Free Delivery)",
+      "markup_percentage": 5,
+      "assigned_products": [
+        {
+          "product_id": "PROD-001",
+          "quantity": 50
+        },
+        {
+          "product_id": "PROD-002",
+          "quantity": 30,
+          "custom_markup_percentage": 8
+        },
+        {
+          "product_id": "PROD-003",
+          "quantity": 40
+        },
+        {
+          "product_id": "PROD-004",
+          "quantity": 35
+        },
+        {
+          "product_id": "PROD-005",
+          "quantity": 25
+        },
+        {
+          "product_id": "PROD-006",
+          "quantity": 50
+        },
+        {
+          "product_id": "PROD-007",
+          "quantity": 100
+        },
+        {
+          "product_id": "PROD-008",
+          "quantity": 200
+        },
+        {
+          "product_id": "PROD-009",
+          "quantity": 60
+        },
+        {
+          "product_id": "PROD-010",
+          "quantity": 80
+        },
+        {
+          "product_id": "PROD-011",
+          "quantity": 70
+        },
+        {
+          "product_id": "PROD-012",
+          "quantity": 45
+        },
+        {
+          "product_id": "PROD-602",
+          "quantity": 30
+        },
+        {
+          "product_id": "PROD-603",
+          "quantity": 50
+        },
+        {
+          "product_id": "PROD-604",
+          "quantity": 40
+        },
+        {
+          "product_id": "PROD-605",
+          "quantity": 35
+        },
+        {
+          "product_id": "PROD-606",
+          "quantity": 25
+        }
+      ]
+    },
+     {
+      "id": "STORE-002",
+      "name": "Tirupati Raythu Bazzar",
       "city": "Tirupati(Free Delivery)",
       "markup_percentage": 5,
       "assigned_products": [
@@ -305,7 +382,7 @@
       ]
     },
     {
-      "id": "STORE-002",
+      "id": "STORE-003",
       "name": "Chandracloud Central Circuits Hub",
       "city": "Tirupati(Free Delivery)",
       "markup_percentage": 10,
@@ -329,7 +406,7 @@
       ]
     },
     {
-      "id": "STORE-003",
+      "id": "STORE-004",
       "name": "Lakshmi Car & EV Bazaar",
       "city": "Tirupati(Free Delivery)",
       "markup_percentage": 10,
